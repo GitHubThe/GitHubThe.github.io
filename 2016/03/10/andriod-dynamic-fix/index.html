@@ -6,6 +6,11 @@
   <title>行者路上客</title>
   <meta name="author" content="hugg">
   
+  <meta name="description" content="andriod 动态修复最近看了下动态修复，运行了Hotfix、Nuwa这两个框架的demo,总算是有一定的了解，这几天下来，踩了不少坑，有些也是因为自己技术很薄弱。
+一、动态修复主要的一些框架：
+https://github.com/dodola/HotFix
+https://github.com">
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -52,37 +57,7 @@
 </nav>
   </header>
   <div id="content" class="container">
-    <div id="cover">
-	<div id="profile" alt="http://ww1.sinaimg.cn/large/6cea169fjw1edgyzma1xcj21kw16ohba.jpg">
-		<a href="/">
-			<div class="logo">
-				<img src="/logo.png" alt="Profile Picture">
-			</div>
-			<div id="title">行者路上客</div>
-		</a>
-
-		
-		 <ul class="my-socials">
-  
-  <li>
-  	<a href="https://github.com/your_id" class="github" target="_blank">
-  		<i class="fa fa-github"></i>
-  	</a>
-  </li>
-  
-  <li>
-  	<a href="http://weibo.com/your_id" class="weibo" target="_blank">
-  		<i class="fa fa-weibo"></i>
-  	</a>
-  </li>
-  
- 
-</ul>
-	</div>
-</div>
-
-
-  <article class="post">
+    <article class="post">
   
     <div class="gallery">
   <div class="photoset">
@@ -102,7 +77,7 @@
       <time datetime="2016-03-10T10:29:06.022Z"><a href="/2016/03/10/andriod-dynamic-fix/">Thu, Mar 10 2016, 6:29:06 pm</a></time>
 
   
-    <h1 class="title"><a href="/2016/03/10/andriod-dynamic-fix/"></a></h1>
+    <h1 class="title"></h1>
   
 
 
@@ -156,102 +131,48 @@ c:/nuwa does not exist  改成绝对路径就好了。
     </div>
     <footer>
       
-        <div class="alignleft">
-            <a href="/2016/03/10/andriod-dynamic-fix/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://yoursite.com/2016/03/10/andriod-dynamic-fix/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/03/10/andriod-dynamic-fix/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
+          
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <span class="jiathis_txt">分享到：</span>
+  <a class="jiathis_button_weixin">微信</a>
+  <a class="jiathis_button_tsina">新浪微博</a>
+  <a class="jiathis_button_renren">人人网</a>
+  <a class="jiathis_button_qzone">QQ空间</a>
+  <a class="jiathis_button_douban">豆瓣</a>
+  <a class="jiathis_button_pocket">Pocket</a>
+  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+  <a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+          <div class="clearfix"></div>
+          <nav id="pagination">
   
-  <div class="post-content">
-    <header>
-      
-      <time datetime="2016-03-03T11:52:37.000Z"><a href="/2016/03/03/My-New-Post/">Thu, Mar 3 2016, 7:52:37 pm</a></time>
-
   
-    <h1 class="title"><a href="/2016/03/03/My-New-Post/">github hexo 搭建个人博客遇到的坑</a></h1>
-  
-
-
-
-<div class="clear"></div>
-      
-    </header>
-    <div class="entry">
-      
-        <p>1、 windows环境，git,node.js都已安装好，安装自行Google，这里附上几个<br>    连接：<a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">http://www.jianshu.com/p/465830080ea9</a></p>
-<p>2、在执行hexo deploy 命令没反应，_config.yml中type: git 分号需要加<br>    空格，<a href="https://github.com/hexojs/hexo/issues/1154" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/1154</a></p>
-<p>3、部署成功后，输入username.github.io依旧没反应，原因是我在github中<br>    创建repository时，没有按照这个username.github.io命名规则，改过来之后就OK</p>
-<p>4、运行hexo deploy时出现如下错误：</p>
-<pre><code>FATAL bash: /dev/tty: No such device or address
-error: failed to execute prompt script (exit code 1)
-fatal: could not read Username for &apos;https://github.com&apos;: Invalid argument，
-</code></pre><p>解决办法：</p>
-<pre><code>把git的版本降低到1.9.0才正常运行，
-</code></pre><p>参考的这个连接：<a href="https://github.com/hexojs/hexo/issues/1495" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/1495</a></p>
-
-      
-    </div>
-    <footer>
-      
-        <div class="alignleft">
-            <a href="/2016/03/03/My-New-Post/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://yoursite.com/2016/03/03/My-New-Post/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/03/03/My-New-Post/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-<nav id="pagination">
-  
+    <a href="/2016/03/03/My-New-Post/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
   
   <div class="clearfix"></div>
 </nav>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
-<script src="/js/jquery.anystretch.min.js"></script>
-<script src="/js/cover.js"></script>
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+      <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-thread-key="/2016/03/10/andriod-dynamic-fix/"></div>
+<!-- Duoshuo Comment END -->
+  
+</section>
+
+
 
     <div class="clearfix"></div>
   </div>
