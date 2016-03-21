@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>github hexo 搭建个人博客遇到的坑 | 行者路上客</title>
+  <title>行者路上客</title>
   <meta name="author" content="hugg">
   
-  <meta name="description" content="1、 windows环境，git,node.js都已安装好，安装自行Google，这里附上几个    连接：http://www.jianshu.com/p/465830080ea9
-2、在执行hexo deploy 命令没反应，_config.yml中type: git 分号需要加    空格，h">
+  <meta name="description" content="update sdk support library 23.2.1最近因为想运行一个比较新的demo，手贱更新了sdk包到23.2.1，各种问题接着就来了， 希望各位在更新时慎重。
+一、先来说下第一个问题，更新过后运行就报这个错 ：
+E/VdcInflateDelegate﹕ Exception w">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="github hexo 搭建个人博客遇到的坑"/>
+  
   <meta property="og:site_name" content="行者路上客"/>
 
   
@@ -72,10 +73,10 @@
   <div class="post-content">
     <header>
       
-      <time datetime="2016-03-03T11:52:37.000Z"><a href="/2016/03/03/My-New-Post/">Thu, Mar 3 2016, 7:52:37 pm</a></time>
+      <time datetime="2016-03-21T03:54:28.142Z"><a href="/2016/03/21/lib23.2.1-error/">Mon, Mar 21 2016, 11:54:28 am</a></time>
 
   
-    <h1 class="title">github hexo 搭建个人博客遇到的坑</h1>
+    <h1 class="title"></h1>
   
 
 
@@ -85,17 +86,41 @@
     </header>
     <div class="entry">
       
-        <p>1、 windows环境，git,node.js都已安装好，安装自行Google，这里附上几个<br>    连接：<a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">http://www.jianshu.com/p/465830080ea9</a></p>
-<p>2、在执行hexo deploy 命令没反应，_config.yml中type: git 分号需要加<br>    空格，<a href="https://github.com/hexojs/hexo/issues/1154" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/1154</a></p>
-<p>3、部署成功后，输入username.github.io依旧没反应，原因是我在github中<br>    创建repository时，没有按照这个username.github.io命名规则，改过来之后就OK</p>
-<p>4、运行hexo deploy时出现如下错误：</p>
-<pre><code>FATAL bash: /dev/tty: No such device or address
-error: failed to execute prompt script (exit code 1)
-fatal: could not read Username for &apos;https://github.com&apos;: Invalid argument，
-</code></pre><p>解决办法：</p>
-<pre><code>把git的版本降低到1.9.0才正常运行，
-</code></pre><p>参考的这个连接：<a href="https://github.com/hexojs/hexo/issues/1495" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/1495</a></p>
+        <h2 id="update-sdk-support-library-23-2-1"><a href="#update-sdk-support-library-23-2-1" class="headerlink" title="update sdk support library 23.2.1"></a>update sdk support library 23.2.1</h2><pre><code>最近因为想运行一个比较新的demo，手贱更新了sdk包到23.2.1，各种问题接着就来了， 希望各位在更新时慎重。
+</code></pre><p>一、先来说下第一个问题，更新过后运行就报这个错 ：</p>
+<pre><code>E/VdcInflateDelegate﹕ Exception while inflating &lt;vector&gt;
+    org.xmlpull.v1.XmlPullParserException: Binary XML file line #17&lt;vector&gt; tag req
+    uires viewportWidth &gt; 0
+</code></pre><p>google之后,在这个连接中找到答案：<a href="http://stackoverflow.com/questions/35668495/app-getting-crashed-and-i-am-not-able-to-understand-it" target="_blank" rel="external">http://stackoverflow.com/questions/35668495/app-getting-crashed-and-i-am-not-able-to-understand-it</a> 。方法大致如下：<br>Use this code in your build.gradle file</p>
+<pre><code> //for Gradle Plugin 2.0+  
+ android {  
+     defaultConfig {  
+     vectorDrawables.useSupportLibrary = true  
+     }  
+ }
+ If you are using Gradle 1.5 you’ll instead use
 
+defaultConfig {
+        generatedDensities = []
+    }
+
+    // This is handled for you by the 2.0+ Gradle Plugin
+    aaptOptions {
+        additionalParameters &quot;--no-version-vectors&quot;
+    }
+</code></pre><p>有个基本环境要求：</p>
+<p>1、   build.gradle 要升级</p>
+<pre><code>dependencies {
+    classpath &apos;com.android.tools.build:gradle:1.5.0&apos;
+</code></pre><p>2、支持包要改为23.2.1，我使用的TabLayout用的23.1.1报错了</p>
+<pre><code>dependencies {
+    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
+    compile &apos;com.android.support:appcompat-v7:23.2.1&apos;
+    compile &apos;com.android.support:recyclerview-v7:23.2.1&apos;
+    compile &apos;com.android.support:design:23.2.1&apos;
+</code></pre><p>二、到这里我的demo基本上运行正常了，但还是有个问题textColor很多都不起作用了，经过各种设置还是没能找到解决方法，还是把降低sdk 的lib 到23.1.1。  方法：</p>
+<pre><code>找到andriod sdk 的这个目录\extras\android\m2repository\com\android\support 删除最新的安装包，删除maven-metadata.xml 中加载的最新包， 修改release的版本号
+</code></pre>
       
     </div>
     <footer>
@@ -119,8 +144,8 @@ fatal: could not read Username for &apos;https://github.com&apos;: Invalid argum
           <div class="clearfix"></div>
           <nav id="pagination">
   
-    <a href="/2016/03/10/andriod-dynamic-fix/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
   
+    <a href="/2016/03/10/andriod-dynamic-fix/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
   
   <div class="clearfix"></div>
 </nav>
@@ -136,7 +161,7 @@ fatal: could not read Username for &apos;https://github.com&apos;: Invalid argum
 
   
       <!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="/2016/03/03/My-New-Post/"></div>
+<div class="ds-thread" data-thread-key="/2016/03/21/lib23.2.1-error/"></div>
 <!-- Duoshuo Comment END -->
   
 </section>
